@@ -24,7 +24,7 @@ class Producto( models.Model ):
     tipo         = models.CharField(max_length=100)
     precio       = models.DecimalField(max_digits=5, decimal_places=2)
     cantidad     = models.IntegerField(default=0)
-    url_producto = models.CharField(max_length=900)
+    url_producto = models.CharField(max_length=900)    
 
 class Usuario( models.Model ):
     
