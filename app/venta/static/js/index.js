@@ -23,9 +23,9 @@ const getProductos = async () => {
                 <td>
                     <div class="flex items-center space-x-3">
                         <div class="avatar">
-                        <div class="mask mask-squircle w-12 h-12">
-                            <img src="${ producto.url_producto }" alt="Avatar Tailwind CSS Component" />
-                        </div>
+                            <div class="mask mask-squircle w-12 h-12">
+                                <img src="${ producto.url_producto }" alt="Avatar Tailwind CSS Component" />
+                            </div>
                         </div>
                         <div>
                             <div class="font-bold">${ producto.nombre }</div>
@@ -39,9 +39,9 @@ const getProductos = async () => {
                 <td>${ producto.precio }</td>
                 <th>
                     <button class="btn btn-ghost btn-xs">editar</button>
-                    <button 
-                        class="btn btn-ghost btn-xs"
-                        onclick="${deleteProductoById( pk )}">
+                    <button
+                        id="btnEliminar-${pk}"
+                        class="btn btn-ghost btn-xs">
                         eliminar
                     </button>
                 </th>
@@ -50,6 +50,14 @@ const getProductos = async () => {
     })
 
     tblProductos.innerHTML = productosInTable
+
+    productos.forEach(({ pk }) => {
+        
+        const botonEliminar = document.getElementById(`btnEliminar-${pk}`)
+
+        botonEliminar.setAttribute('onclick', deleteProductoById( pk ))
+
+    })
 
 }
 

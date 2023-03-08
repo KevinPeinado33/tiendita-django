@@ -23,9 +23,35 @@
           <th></th>
         </tr>
       </thead>
-      <tbody id="tblProductos">
-        <!-- row 1 -->
-        
+      <tbody>
+        {% for producto in productos %}
+        <tr>
+          <td>
+              <div class="flex items-center space-x-3">
+                  <div class="avatar">
+                      <div class="mask mask-squircle w-12 h-12">
+                          <img src="{{ producto.url_producto }}" alt="Avatar Tailwind CSS Component" />
+                      </div>
+                  </div>
+                  <div>
+                      <div class="font-bold">{{ producto.nombre }}</div>
+                  </div>
+              </div>
+          </td>
+          <td>
+              <span class="badge badge-ghost badge-sm">{{ producto.tipo }}</span>
+          </td>
+          <td>{{ producto.cantidad }}</td>
+          <td>{{ producto.precio }}</td>
+          <th>
+              <button
+                  onclick=""
+                  class="btn btn-ghost btn-xs">
+                  eliminar
+              </button>
+          </th>
+        </tr>
+        {% endfor %}
       </tbody>
       <!-- foot -->
       <tfoot>
